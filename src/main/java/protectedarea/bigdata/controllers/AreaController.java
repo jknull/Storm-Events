@@ -61,22 +61,6 @@ public class AreaController {
 		Collection<Event> events = eventSearchRepository.searchEvent(temp.getSUBLOC(), temp.getLAT(), temp.getLON());
 		Gson gson = new Gson();
 		String eventList = gson.toJson(events);
-		//System.out.println(eventList);
-		/*JsonObject jObject = new JsonObject();
-		
-	    JsonArray jArray = new JsonArray();
-	    for (Event ev : events)
-	    {
-	         JsonObject json = new JsonObject();
-	         json.add("event_id", new JsonParser().parse(ev.getEVENTID()).getAsJsonObject());
-	         json.add("type", new JsonParser().parse(ev.getTYPE()).getAsJsonObject());
-	         json.add("date", new JsonParser().parse(ev.getDATE()).getAsJsonObject());
-	         json.add("damage_cost", new JsonParser().parse(ev.getDAMAGEPROPERTY()).getAsJsonObject());
-	         json.add("description1", new JsonParser().parse(ev.getEPISODENARRATIVE()).getAsJsonObject());
-	         json.add("description", new JsonParser().parse(ev.getEVENTNARRATIVE()).getAsJsonObject());
-	         jArray.add(json);
-	    }
-	    jObject.add("EventList", jArray);*/
 
 		model.addAttribute("eventList", eventList);
 		model.addAttribute("areaList", results);
